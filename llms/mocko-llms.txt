@@ -1,1 +1,69 @@
-(placeholder)
+# Mocko
+
+> Mocko is a dynamic HTTP mocking tool. Mocks are defined in versioned HCL files or created from a control panel UI, response bodies are rendered with the Bigodon templating language, unmatched requests can be proxied to a real backend, and flags give mocks state across requests. It runs locally via CLI, in Docker or Kubernetes, or hosted on Mocko Cloud.
+
+For coding agents there is an official agent skill that teaches the mock file format, Bigodon, and the SDK. Install it in a repository with `npx skills@latest add mocko-app/mocko/skills/mocko`. Source code lives at https://github.com/mocko-app/mocko.
+
+## Getting Started
+
+- [Getting Started](https://mocko.dev/docs/getting-started): Start Mocko locally with the UI-first quickstart and create your first mock in a few minutes.
+- [Coding Agents](https://mocko.dev/docs/coding-agents): Install the Mocko skill so coding agents like Claude Code, Codex, and Cursor can write, debug, and review your mocks.
+
+## Creating Mocks
+
+- [File Mocks](https://mocko.dev/docs/creating-mocks/file-mocks): Define mocks in versioned HCL files: routes, path parameters, response bodies, headers, delays, and multi-file project layout.
+- [UI Mocks](https://mocko.dev/docs/creating-mocks/ui-mocks): Create and edit mocks in the control panel: the mock form, labels and filtering, how UI mocks relate to file mocks, and persistence.
+- [Templating](https://mocko.dev/docs/creating-mocks/templating): Make responses dynamic with Bigodon templates: request data, helpers, conditionals, status overrides, variables, and loops.
+- [How Matching Works](https://mocko.dev/docs/creating-mocks/matching): How Mocko picks the mock that answers a request: exact versus parameterized paths, deployed versus file mocks, and what happens when nothing matches.
+- [Flags](https://mocko.dev/docs/creating-mocks/flags): Give mocks state that survives across requests with flags: setFlag, getFlag, hasFlag, delFlag, key organization, TTLs, and persistence.
+- [Proxying and Hosts](https://mocko.dev/docs/creating-mocks/proxying-and-hosts): Blend mocks with real backends: proxy unmatched requests, proxy conditionally from templates, and route multiple services with host blocks.
+- [Data Blocks](https://mocko.dev/docs/creating-mocks/data-blocks): Share fixtures across mocks with data blocks: flat values, repeated sub-blocks, iteration with forEach, and multi-file organization.
+
+## Recipes
+
+- [Recipes Overview](https://mocko.dev/docs/recipes): Practical recipes combining mocks, templates, flags, data blocks, and proxying into complete behaviors.
+- [Stateful CRUD](https://mocko.dev/docs/recipes/stateful-crud): A complete create, read, update, and delete API using flags as the data store, with real 404s and a consistent list endpoint.
+- [List and Detail From Data](https://mocko.dev/docs/recipes/list-and-detail): Serve a collection endpoint and a detail endpoint with 404 handling from a single data block of fixtures.
+- [Append to a List](https://mocko.dev/docs/recipes/append-to-list): Accept POSTed items and return everything submitted so far with GET, using flags as an append-only store.
+- [Mock One Edge Case](https://mocko.dev/docs/recipes/mock-one-edge-case): Proxy normal traffic to the real backend while mocking a single route, query branch, or request shape you need to test.
+- [Simulate Slow or Unstable APIs](https://mocko.dev/docs/recipes/slow-unstable-apis): Add latency, random failures, and outages in front of an otherwise healthy backend to test loading states, retries, and timeouts.
+- [Polling Status Flow](https://mocko.dev/docs/recipes/polling-status): Mock async job endpoints that move from queued to processing to done as the client polls, using a flag as a per-job counter.
+- [Debug Broken JSON](https://mocko.dev/docs/recipes/debug-broken-json): Track down invalid JSON in responses: trailing commas from each, empty values from context changes, missing quotes, and stray braces.
+- [Mock Microservices by Host](https://mocko.dev/docs/recipes/microservices-by-host): Stand in for several microservices with one instance: host blocks per service, host-scoped mocks, and per-host proxy fallback.
+
+## Testing with the SDK
+
+- [SDK Getting Started](https://mocko.dev/docs/sdk/getting-started): Control Mocko from automated tests with the zero-dependency @mocko/sdk: set up scenarios through flags and assert against dynamic mocks.
+- [Flag Definitions](https://mocko.dev/docs/sdk/flag-definitions): Declare typed, reusable flags with defineFlag and key patterns, and share them across your whole test suite.
+- [Auth and Deployment](https://mocko.dev/docs/sdk/auth): Use the SDK against shared and protected instances: MANAGEMENT_AUTH_MODE, the secret option, and where to get the secret in CI.
+
+## Running Mocko
+
+- [CLI](https://mocko.dev/docs/running/cli): Run Mocko locally with the CLI: installation, watch mode, ports, proxying, UI options, and Redis mode.
+- [Docker Compose](https://mocko.dev/docs/running/compose): Run Mocko in Docker Compose next to your services: the standalone image, mounted mock files, Redis persistence, and host aliasing.
+- [Docker Images](https://mocko.dev/docs/running/docker): The all-in-one standalone image versus the split core and control images, and when to use each.
+- [Kubernetes with Helm](https://mocko.dev/docs/running/helm): Deploy Mocko to Kubernetes with the official Helm chart: core, control panel, Redis persistence, file mocks from ConfigMaps, and key values.
+- [Persistence and Redis](https://mocko.dev/docs/running/persistence): Mocko's two storage modes explained: storeless versus Redis, what survives a restart, and how to enable persistence in each run mode.
+
+## Mocko Cloud
+
+- [Cloud Overview](https://mocko.dev/docs/cloud): Mocko Cloud is the hosted version of Mocko: a public HTTPS mock server your team can reach without running or deploying anything.
+- [Cloud Getting Started](https://mocko.dev/docs/cloud/getting-started): Sign in with GitHub, create a project, and publish your first mock on a public HTTPS URL in a few minutes.
+- [Projects and URLs](https://mocko.dev/docs/cloud/projects): How projects map to public HTTPS hosts, and how per-project proxying lets real and mocked endpoints work together.
+- [Local Tunnels](https://mocko.dev/docs/cloud/tunnels): Expose a service running on your own machine through your Mocko Cloud host, with your mocks layered on top of it.
+- [Request Logs](https://mocko.dev/docs/cloud/logs): Watch every request that reaches your project, including its headers and body, to confirm clients are calling what you expect.
+- [Team Members](https://mocko.dev/docs/cloud/team): Invite teammates to a project by GitHub username so a shared set of mocks lives in one place.
+
+## Reference
+
+- [Configuration](https://mocko.dev/docs/reference/configuration): Every Mocko environment variable: server, proxying, management auth, Redis, the control panel, and the standalone Docker image.
+- [CLI Reference](https://mocko.dev/docs/reference/cli): Complete reference for the mocko command: every flag, defaults, and usage examples.
+- [Mock Files (HCL)](https://mocko.dev/docs/reference/mock-files): Full reference for the HCL mock files: every mock, host, and data block field, heredocs, match priority, and file layout.
+- [Template Helpers](https://mocko.dev/docs/reference/helpers): Reference for Mocko's own template helpers: setStatus, setHeader, proxy, log, and the flag helpers, plus the request context.
+- [Bigodon](https://mocko.dev/docs/reference/bigodon): Reference for the Bigodon template language used in mock bodies: syntax, blocks, variables, and the most-used built-in helpers.
+- [Operations](https://mocko.dev/docs/reference/operations): Management operations for flag hygiene at scale: purging stale flags and purging flags matching a prefix, substring, or regex.
+- [Migrating from v1](https://mocko.dev/docs/reference/v1-migration): Move a v1 installation to v2: run the built-in migration operation against the same Redis, fix templates, and purge v1 data.
+
+## Optional
+
+- [Legacy v1 docs](https://mocko.dev/docs/v1): Documentation for Mocko v1, kept for existing installations.

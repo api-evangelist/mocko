@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: Mocko Legacy v1 docs API
+  version: '2026-10-21'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-21: 4 operation(s) read from 2 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Mocko has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: 16
+    pages-with-code: 15
+    pages-read: 20
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-21'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://mocko.dev/docs/v1/templating
+  - https://mocko.dev/docs/v1/templating/persistence
+  x-docs-section: v1
+servers:
+- url: https://demo-api.mockoapp.net
+paths:
+  /cats/{name}:
+    get:
+      operationId: get_cats_name
+      tags:
+      - Cats
+      summary: Templating (v1)
+      x-source: https://mocko.dev/docs/v1/templating
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /message:
+    delete:
+      operationId: delete_message
+      tags:
+      - Message
+      summary: Delete the flag.
+      x-source: https://mocko.dev/docs/v1/templating/persistence
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+    get:
+      operationId: get_message
+      tags:
+      - Message
+      summary: Create a PUT /message/{message} that saves a flag and a GET /message that returns it.
+      x-source: https://mocko.dev/docs/v1/templating/persistence
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /message/{message}:
+    put:
+      operationId: put_message_message
+      tags:
+      - Message
+      summary: Create a PUT /message/{message} that saves a flag and a GET /message that returns it.
+      x-source: https://mocko.dev/docs/v1/templating/persistence
+      parameters:
+      - name: message
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+tags:
+- name: Cats
+- name: Message
+components:
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      x-source: https://mocko.dev/docs/sdk/auth
+security:
+- Bearer: []

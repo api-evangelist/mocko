@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mocko/main/json-schema/mocko-put-users-id-request-schema.json",
+  "title": "PutUsersIdRequest",
+  "x-generated": "2026-10-21",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/mocko-recipes-openapi-generated.yml#/components/schemas/PutUsersIdRequest",
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "description": "Updated user data."
+    }
+  },
+  "required": [
+    "body"
+  ]
+}

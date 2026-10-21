@@ -1,0 +1,16 @@
+generated: '2026-10-21'
+method: none
+source:
+- https://zapier.com/apps/mocko/integrations
+- https://n8n.io/integrations/mocko/
+- https://composio.dev/toolkits/mocko
+- https://monid.ai/tools/mocko
+checked:
+- https://composio.dev/toolkits/mocko
+- https://monid.ai/tools/mocko
+- https://n8n.io/integrations/mocko/
+- https://zapier.com/apps/mocko/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []

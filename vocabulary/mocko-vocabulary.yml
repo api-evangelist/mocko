@@ -1,0 +1,193 @@
+generated: '2026-10-21'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/mocko-openapi-generated.yml
+vocabulary:
+  name: Mocko Domain Vocabulary
+  description: 'Terms declared by Mocko''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-21'
+  terms:
+  - term: GetExportsIdResponse
+    definition: 'Object declared by the contract with fields: id, status, url.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetExportsIdResponse
+  - term: DeleteExportsIdPollsResponse
+    definition: 'Object declared by the contract with fields: reset.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/DeleteExportsIdPollsResponse
+  - term: GetInvoicesIdResponse
+    definition: 'Object declared by the contract with fields: id, status.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetInvoicesIdResponse
+  - term: PostOrdersRequest
+    definition: 'Object declared by the contract with fields: items.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PostOrdersRequest
+  - term: PostOrdersResponse
+    definition: 'Object declared by the contract with fields: status, items.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PostOrdersResponse
+  - term: GetOrdersIdResponse
+    definition: 'Object declared by the contract with fields: id, status.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetOrdersIdResponse
+  - term: PostOrdersOrderidRequest
+    definition: 'Object declared by the contract with fields: items.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PostOrdersOrderidRequest
+  - term: PostOutageStateResponse
+    definition: 'Object declared by the contract with fields: outage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PostOutageStateResponse
+  - term: GetPaymentsIdResponse
+    definition: 'Object declared by the contract with fields: id, status, error.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetPaymentsIdResponse
+  - term: GetProductsResponse
+    definition: 'Object declared by the contract with fields: [].'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetProductsResponse
+  - term: GetProductsIdResponse
+    definition: 'Object declared by the contract with fields: id, name, price, error.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetProductsIdResponse
+  - term: GetPurchasesResponse
+    definition: 'Object declared by the contract with fields: product, qty.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetPurchasesResponse
+  - term: PostPurchasesRequest
+    definition: 'Object declared by the contract with fields: product, qty.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PostPurchasesRequest
+  - term: GetUsersResponse
+    definition: 'Object declared by the contract with fields: [].'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetUsersResponse
+  - term: PostUsersRequest
+    definition: 'Object declared by the contract with fields: name, email.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PostUsersRequest
+  - term: PostUsersResponse
+    definition: 'Object declared by the contract with fields: id, name.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PostUsersResponse
+  - term: DeleteUsersIdResponse
+    definition: 'Object declared by the contract with fields: deleted.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/DeleteUsersIdResponse
+  - term: GetUsersIdResponse
+    definition: 'Object declared by the contract with fields: user, error.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/GetUsersIdResponse
+  - term: PutUsersIdRequest
+    definition: 'Object declared by the contract with fields: body.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PutUsersIdRequest
+  - term: PutUsersIdResponse
+    definition: 'Object declared by the contract with fields: user, error.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/mocko-openapi-generated.yml#/components/schemas/PutUsersIdResponse
+  - term: Api
+    definition: 'Resource group in the contract; its operation GET /: GET /'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Cats
+    definition: 'Resource group in the contract; its operation GET /cats/{name}: Templating (v1)'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Exports
+    definition: 'Resource group in the contract; its operation GET /exports/{id}: Polling Status Flow'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Files
+    definition: 'Resource group in the contract; its operation GET /files/{path*}: Catch-all paths'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Hello
+    definition: 'Resource group in the contract; its operation GET /hello: GET /hello'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Invoices
+    definition: 'Resource group in the contract; its operation GET /invoices/{id}: Mock Microservices by Host'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Message
+    definition: 'Resource group in the contract; its operation DELETE /message: Delete the flag.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Orders
+    definition: 'Resource group in the contract; its operation POST /orders: Templating | Mocko Docs'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Outage
+    definition: 'Resource group in the contract; its operation POST /outage/{state}: Flags are key-value state that survives across requests.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Passthrough
+    definition: 'Resource group in the contract; its operation GET /passthrough: Most of the time you do not want to mock a whole API, just the
+      parts that matter for the scenario at hand.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Payments
+    definition: 'Resource group in the contract; its operation POST /payments/9: POST /payments/9'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Posts
+    definition: 'Resource group in the contract; its operation GET /posts: GET /posts'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Products
+    definition: 'Resource group in the contract; its operation GET /products: Returns a JSON array of all product objects defined in the data
+      block.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Purchases
+    definition: 'Resource group in the contract; its operation DELETE /purchases: Append to a List'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Reports
+    definition: 'Resource group in the contract; its operation GET /reports/{id}: The mock adds a 1‑second delay and makes roughly 30% of requests
+      fail with a 500 error, otherwise proxies to the real backend.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml
+  - term: Users
+    definition: 'Resource group in the contract; its operation GET /users: Stateful CRUD'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/mocko-openapi-generated.yml

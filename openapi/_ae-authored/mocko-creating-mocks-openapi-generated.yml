@@ -1,0 +1,257 @@
+openapi: 3.1.0
+info:
+  title: Mocko creating mocks API
+  version: '2026-10-21'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-21: 8 operation(s) read from 4 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Mocko has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: 16
+    pages-with-code: 15
+    pages-read: 20
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-21'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://mocko.dev/docs/creating-mocks/flags
+  - https://mocko.dev/docs/creating-mocks/matching
+  - https://mocko.dev/docs/creating-mocks/proxying-and-hosts
+  - https://mocko.dev/docs/creating-mocks/templating
+  x-docs-section: creating-mocks
+servers:
+- url: https://demo-api.mockoapp.net
+paths:
+  /files/{path*}:
+    get:
+      operationId: get_files_path
+      tags:
+      - Files
+      summary: Catch-all paths
+      x-source: https://mocko.dev/docs/creating-mocks/matching
+      parameters:
+      - name: path*
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /orders:
+    post:
+      operationId: post_orders
+      tags:
+      - Orders
+      summary: Templating | Mocko Docs
+      x-source: https://mocko.dev/docs/creating-mocks/templating
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOrdersRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOrdersResponse'
+      x-evidence:
+        kind: documentation
+  /orders/{id}:
+    get:
+      operationId: get_orders_id
+      tags:
+      - Orders
+      summary: Templating | Mocko Docs
+      x-source: https://mocko.dev/docs/creating-mocks/templating
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrdersIdResponse'
+      x-evidence:
+        kind: documentation
+  /orders/{orderid}:
+    post:
+      operationId: post_orders_orderid
+      tags:
+      - Orders
+      summary: POST /orders/{orderId}
+      x-source: https://mocko.dev/docs/creating-mocks/templating
+      parameters:
+      - name: orderid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOrdersOrderidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl http://localhost:8080/orders/31 {\n \"id\": 31,\n \"status\": \"shipped\"\n} The request context Every part of the incoming\
+          \ request is available under request : {{request.params.id}} reads path parameters declared with {id} in the route. {{request.query.page}}\
+          \ reads query string values, ?page=2 in this case. If the client repeats a key ( ?tag=a&tag=b ), the value is an array instead of a\
+          \ string. {{req"
+  /outage/{state}:
+    post:
+      operationId: post_outage_state
+      tags:
+      - Outage
+      summary: Flags are key-value state that survives across requests.
+      x-source: https://mocko.dev/docs/creating-mocks/flags
+      parameters:
+      - name: state
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOutageStateResponse'
+      x-evidence:
+        kind: documentation
+  /passthrough:
+    get:
+      operationId: get_passthrough
+      tags:
+      - Passthrough
+      summary: Most of the time you do not want to mock a whole API, just the parts that matter for the scenario at hand.
+      x-source: https://mocko.dev/docs/creating-mocks/proxying-and-hosts
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /payments/9:
+    post:
+      operationId: post_payments_9
+      tags:
+      - Payments
+      summary: POST /payments/9
+      x-source: https://mocko.dev/docs/creating-mocks/flags
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl http://localhost:8080/payments/9 {\n \"id\": 9,\n \"status\": \"approved\"\n} $ curl -X POST http://localhost:8080/outage/on\
+          \ {\n \"outage\": \"on\"\n} $ curl -i http://localhost:8080/payments/9 HTTP/1.1 503 Service Unavailable\n...\n{\n \"error\": \"Payment\
+          \ provider unavailable\"\n} The state changed between two identical requests. That is the whole point of flags, and it works because\
+          \ flags are shared by all mocks"
+  /payments/{id}:
+    get:
+      operationId: get_payments_id
+      tags:
+      - Payments
+      summary: Flags are key-value state that survives across requests.
+      x-source: https://mocko.dev/docs/creating-mocks/flags
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPaymentsIdResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostOrdersRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          description: Array of items with sku
+      required:
+      - items
+    PostOrdersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        items:
+          type: array
+          description: Array of created items with sku and position
+    GetOrdersIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+    PostOrdersOrderidRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              sku:
+                type: string
+    PostOutageStateResponse:
+      type: object
+      properties:
+        outage:
+          type: string
+          description: Echoes the requested state.
+    GetPaymentsIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The payment id.
+        status:
+          type: string
+          description: Payment status (e.g., "approved").
+        error:
+          type: string
+          description: Error message when outage flag is set.
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      x-source: https://mocko.dev/docs/sdk/auth
+tags:
+- name: Files
+- name: Orders
+- name: Outage
+- name: Passthrough
+- name: Payments
+security:
+- Bearer: []

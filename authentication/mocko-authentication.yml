@@ -1,0 +1,18 @@
+generated: '2026-10-21'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://mocko.dev/docs/sdk/auth
+sources:
+- https://mocko.dev/docs/sdk/auth
+- https://mocko.dev/docs/getting-started
+- https://mocko.dev/docs/sdk/getting-started
+- https://mocko.dev/docs/cloud/getting-started
+description: Mocko uses a bearer token for authentication when the mock server is configured with MANAGEMENT_AUTH_MODE=all.
+schemes:
+- type: http-bearer
+  name: Bearer
+  evidence: 'It is sent as Authorization: Bearer <secret> on every request'
+  location: header
+  header: Authorization
+  how_to_obtain: Read the deploy secret from the server configuration (DEPLOY_SECRET) or from the Helm chart release secret.
+docs: https://mocko.dev/docs/sdk/auth

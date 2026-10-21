@@ -1,0 +1,94 @@
+{
+  "@context": {
+    "@vocab": "https://mocko.dev/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "mocko": "https://mocko.dev/schema#",
+    "GetExportsIdResponse": "mocko:GetExportsIdResponse",
+    "id": {
+      "@id": "mocko:id",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "mocko:status",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "mocko:url",
+      "@type": "xsd:string"
+    },
+    "DeleteExportsIdPollsResponse": "mocko:DeleteExportsIdPollsResponse",
+    "reset": {
+      "@id": "mocko:reset",
+      "@type": "xsd:boolean"
+    },
+    "GetInvoicesIdResponse": "mocko:GetInvoicesIdResponse",
+    "PostOrdersRequest": "mocko:PostOrdersRequest",
+    "items": {
+      "@id": "mocko:items",
+      "@container": "@list"
+    },
+    "PostOrdersResponse": "mocko:PostOrdersResponse",
+    "GetOrdersIdResponse": "mocko:GetOrdersIdResponse",
+    "PostOrdersOrderidRequest": "mocko:PostOrdersOrderidRequest",
+    "PostOutageStateResponse": "mocko:PostOutageStateResponse",
+    "outage": {
+      "@id": "mocko:outage",
+      "@type": "xsd:string"
+    },
+    "GetPaymentsIdResponse": "mocko:GetPaymentsIdResponse",
+    "error": {
+      "@id": "mocko:error",
+      "@type": "xsd:string"
+    },
+    "GetProductsResponse": "mocko:GetProductsResponse",
+    "GetProductsIdResponse": "mocko:GetProductsIdResponse",
+    "name": {
+      "@id": "mocko:name",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "mocko:price",
+      "@type": "xsd:decimal"
+    },
+    "GetPurchasesResponse": "mocko:GetPurchasesResponse",
+    "product": {
+      "@id": "mocko:product",
+      "@type": "xsd:string"
+    },
+    "qty": {
+      "@id": "mocko:qty",
+      "@type": "xsd:integer"
+    },
+    "PostPurchasesRequest": "mocko:PostPurchasesRequest",
+    "GetUsersResponse": "mocko:GetUsersResponse",
+    "PostUsersRequest": "mocko:PostUsersRequest",
+    "email": {
+      "@id": "mocko:email",
+      "@type": "xsd:string"
+    },
+    "PostUsersResponse": "mocko:PostUsersResponse",
+    "DeleteUsersIdResponse": "mocko:DeleteUsersIdResponse",
+    "deleted": {
+      "@id": "mocko:deleted",
+      "@type": "xsd:boolean"
+    },
+    "GetUsersIdResponse": "mocko:GetUsersIdResponse",
+    "user": {
+      "@id": "mocko:user"
+    },
+    "PutUsersIdRequest": "mocko:PutUsersIdRequest",
+    "body": {
+      "@id": "mocko:body"
+    },
+    "PutUsersIdResponse": "mocko:PutUsersIdResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Mocko API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Mocko's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-21) from openapi/_ae-authored/mocko-openapi-generated.yml.",
+  "dcterms:created": "2026-10-21",
+  "dcterms:source": [
+    "openapi/_ae-authored/mocko-openapi-generated.yml"
+  ]
+}

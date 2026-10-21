@@ -1,0 +1,18 @@
+generated: '2026-10-21'
+method: probed
+source: []
+signals:
+  age_assurance:
+    evidence:
+      - source: https://cdn.codetunnel.net/mocko/terms.txt
+        http_status: 200
+        fetched: "true"
+        quote: "Mocko is not targeted to individuals under the age of 13."
+    note: Indicates minimum age requirement for users.
+  notice_and_action:
+    evidence:
+      - source: https://cdn.codetunnel.net/mocko/privacy.txt
+        http_status: 200
+        fetched: "true"
+        quote: "This Privacy Policy ... tells You about Your privacy rights and how the law protects You."
+    note: States that privacy rights are described in the policy.

@@ -1,0 +1,816 @@
+openapi: 3.1.0
+info:
+  title: Mocko API
+  version: '2026-10-21'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-21: 30 operation(s) read from 20 public documentation page(s) (each
+    operation names its page in x-source). This is not the provider''s published contract; Mocko has published no machine-readable contract that
+    the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: 16
+    pages-with-code: 15
+    pages-read: 20
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-21'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://mocko.dev/docs/reference/helpers
+  - https://mocko.dev/docs/sdk/getting-started
+  - https://mocko.dev/docs/recipes/stateful-crud
+  - https://mocko.dev/docs/recipes/list-and-detail
+  - https://mocko.dev/docs/recipes/slow-unstable-apis
+  - https://mocko.dev/docs/getting-started
+  - https://mocko.dev/docs/sdk/flag-definitions
+  - https://mocko.dev/docs/cloud/getting-started
+  - https://mocko.dev/docs/v1/getting-started/standalone
+  - https://mocko.dev/docs/v1/templating
+  - https://mocko.dev/docs/v1/templating/persistence
+  - https://mocko.dev/docs/recipes/append-to-list
+  - https://mocko.dev/docs/recipes/mock-one-edge-case
+  - https://mocko.dev/docs/recipes/polling-status
+  - https://mocko.dev/docs/recipes/microservices-by-host
+  - https://mocko.dev/docs/creating-mocks/file-mocks
+  - https://mocko.dev/docs/creating-mocks/templating
+  - https://mocko.dev/docs/creating-mocks/matching
+  - https://mocko.dev/docs/creating-mocks/flags
+  - https://mocko.dev/docs/creating-mocks/proxying-and-hosts
+servers:
+- url: https://demo-api.mockoapp.net
+paths:
+  /:
+    get:
+      operationId: get
+      tags:
+      - Api
+      summary: GET /
+      x-source: https://mocko.dev/docs/cloud/getting-started
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl https://<your-slug>.free.mockoapp.net/hello Hello from Mocko! Send that URL to a teammate and they will get the same response.
+          That shareability is the whole point of running in the Cloud. Where to go next You now have a working public mock. From here you can
+          shape how the project behaves and who can reach it: Learn how hosts and proxying work in Projects and URLs , watch real traffic in Requ'
+  /cats/{name}:
+    get:
+      operationId: get_cats_name
+      tags:
+      - Cats
+      summary: Templating (v1)
+      x-source: https://mocko.dev/docs/v1/templating
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /exports/{id}:
+    get:
+      operationId: get_exports_id
+      tags:
+      - Exports
+      summary: Polling Status Flow
+      x-source: https://mocko.dev/docs/recipes/polling-status
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetExportsIdResponse'
+      x-evidence:
+        kind: documentation
+  /exports/{id}/polls:
+    delete:
+      operationId: delete_exports_id_polls
+      tags:
+      - Exports
+      summary: Polling Status Flow
+      x-source: https://mocko.dev/docs/recipes/polling-status
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteExportsIdPollsResponse'
+      x-evidence:
+        kind: documentation
+  /files/{path*}:
+    get:
+      operationId: get_files_path
+      tags:
+      - Files
+      summary: Catch-all paths
+      x-source: https://mocko.dev/docs/creating-mocks/matching
+      parameters:
+      - name: path*
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /hello:
+    get:
+      operationId: get_hello
+      tags:
+      - Hello
+      summary: GET /hello
+      x-source: https://mocko.dev/docs/getting-started
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl http://localhost:8080/hello Hello from Mocko! 5. Move repeatable mocks to files The UI is ideal for quick experiments.
+          Once a mock becomes part of your development workflow, define it as a file mock so it can live with your project, run in CI, and be
+          reviewed like any other change. If you work with a coding agent, it can write the files for you: install the Mocko skill from Coding
+          Agents . Wh'
+  /invoices/{id}:
+    get:
+      operationId: get_invoices_id
+      tags:
+      - Invoices
+      summary: Mock Microservices by Host
+      x-source: https://mocko.dev/docs/recipes/microservices-by-host
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetInvoicesIdResponse'
+      x-evidence:
+        kind: documentation
+  /message:
+    delete:
+      operationId: delete_message
+      tags:
+      - Message
+      summary: Delete the flag.
+      x-source: https://mocko.dev/docs/v1/templating/persistence
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+    get:
+      operationId: get_message
+      tags:
+      - Message
+      summary: Create a PUT /message/{message} that saves a flag and a GET /message that returns it.
+      x-source: https://mocko.dev/docs/v1/templating/persistence
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /message/{message}:
+    put:
+      operationId: put_message_message
+      tags:
+      - Message
+      summary: Create a PUT /message/{message} that saves a flag and a GET /message that returns it.
+      x-source: https://mocko.dev/docs/v1/templating/persistence
+      parameters:
+      - name: message
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /orders:
+    post:
+      operationId: post_orders
+      tags:
+      - Orders
+      summary: Templating | Mocko Docs
+      x-source: https://mocko.dev/docs/creating-mocks/templating
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOrdersRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOrdersResponse'
+      x-evidence:
+        kind: documentation
+  /orders/{id}:
+    get:
+      operationId: get_orders_id
+      tags:
+      - Orders
+      summary: Templating | Mocko Docs
+      x-source: https://mocko.dev/docs/creating-mocks/templating
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrdersIdResponse'
+      x-evidence:
+        kind: documentation
+  /orders/{orderid}:
+    post:
+      operationId: post_orders_orderid
+      tags:
+      - Orders
+      summary: POST /orders/{orderId}
+      x-source: https://mocko.dev/docs/creating-mocks/templating
+      parameters:
+      - name: orderid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOrdersOrderidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl http://localhost:8080/orders/31 {\n \"id\": 31,\n \"status\": \"shipped\"\n} The request context Every part of the incoming\
+          \ request is available under request : {{request.params.id}} reads path parameters declared with {id} in the route. {{request.query.page}}\
+          \ reads query string values, ?page=2 in this case. If the client repeats a key ( ?tag=a&tag=b ), the value is an array instead of a\
+          \ string. {{req"
+  /outage/{state}:
+    post:
+      operationId: post_outage_state
+      tags:
+      - Outage
+      summary: Flags are key-value state that survives across requests.
+      x-source: https://mocko.dev/docs/creating-mocks/flags
+      parameters:
+      - name: state
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOutageStateResponse'
+      x-evidence:
+        kind: documentation
+  /passthrough:
+    get:
+      operationId: get_passthrough
+      tags:
+      - Passthrough
+      summary: Most of the time you do not want to mock a whole API, just the parts that matter for the scenario at hand.
+      x-source: https://mocko.dev/docs/creating-mocks/proxying-and-hosts
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /payments/9:
+    post:
+      operationId: post_payments_9
+      tags:
+      - Payments
+      summary: POST /payments/9
+      x-source: https://mocko.dev/docs/creating-mocks/flags
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl http://localhost:8080/payments/9 {\n \"id\": 9,\n \"status\": \"approved\"\n} $ curl -X POST http://localhost:8080/outage/on\
+          \ {\n \"outage\": \"on\"\n} $ curl -i http://localhost:8080/payments/9 HTTP/1.1 503 Service Unavailable\n...\n{\n \"error\": \"Payment\
+          \ provider unavailable\"\n} The state changed between two identical requests. That is the whole point of flags, and it works because\
+          \ flags are shared by all mocks"
+  /payments/{id}:
+    get:
+      operationId: get_payments_id
+      tags:
+      - Payments
+      summary: Flags are key-value state that survives across requests.
+      x-source: https://mocko.dev/docs/creating-mocks/flags
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPaymentsIdResponse'
+      x-evidence:
+        kind: documentation
+  /posts:
+    get:
+      operationId: get_posts
+      tags:
+      - Posts
+      summary: GET /posts
+      x-source: https://mocko.dev/docs/recipes/mock-one-edge-case
+      parameters:
+      - name: userId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl 'http://localhost:8080/posts?userId=1' [] $ curl http://localhost:8080/posts [\n { \"id\": 1, \"userId\": 1, \"title\"\
+          : \"Getting started with mocking\" },\n { \"id\": 2, \"userId\": 2, \"title\": \"Designing good test data\" },\n { \"id\": 3, \"userId\"\
+          : 2, \"title\": \"Contract testing in practice\" }\n] How it works The mock owns the whole GET /posts route, but only the userId=1 branch\
+          \ renders a mocked response. Ever"
+  /posts/{id}:
+    get:
+      operationId: get_posts_id
+      tags:
+      - Posts
+      summary: Mock One Edge Case
+      x-source: https://mocko.dev/docs/recipes/mock-one-edge-case
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /products:
+    get:
+      operationId: get_products
+      tags:
+      - Products
+      summary: List and Detail From Data
+      description: Returns a JSON array of all product objects defined in the data block.
+      x-source: https://mocko.dev/docs/recipes/list-and-detail
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProductsResponse'
+      x-evidence:
+        kind: documentation
+  /products/{id}:
+    get:
+      operationId: get_products_id
+      tags:
+      - Products
+      summary: List and Detail From Data
+      description: Returns the JSON payload of the product matching the given id, or a 404 error with an error message if not found.
+      x-source: https://mocko.dev/docs/recipes/list-and-detail
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProductsIdResponse'
+      x-evidence:
+        kind: documentation
+  /purchases:
+    delete:
+      operationId: delete_purchases
+      tags:
+      - Purchases
+      summary: Append to a List
+      x-source: https://mocko.dev/docs/recipes/append-to-list
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+    get:
+      operationId: get_purchases
+      tags:
+      - Purchases
+      summary: Append to a List
+      x-source: https://mocko.dev/docs/recipes/append-to-list
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPurchasesResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_purchases
+      tags:
+      - Purchases
+      summary: POST /purchases
+      x-source: https://mocko.dev/docs/recipes/append-to-list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostPurchasesRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST http://localhost:8080/purchases -H 'Content-Type: application/json' -d '{\"product\": \"Widget\", \"qty\": 2}'\
+          \ {\n \"id\": \"7d4c2f2e-9b1a-4f7e-8a3d-5e6f7a8b9c0d\",\n \"status\": \"created\"\n} $ curl http://localhost:8080/purchases [\n { \"\
+          product\": \"Widget\", \"qty\": 2 }\n] How it works Every submission gets a fresh id from the uuid helper, and the whole request body\
+          \ is stored as an object under purchase"
+  /reports/{id}:
+    get:
+      operationId: get_reports_id
+      tags:
+      - Reports
+      summary: Simulate Slow or Unstable APIs
+      description: The mock adds a 1‑second delay and makes roughly 30% of requests fail with a 500 error, otherwise proxies to the real backend.
+      x-source: https://mocko.dev/docs/recipes/slow-unstable-apis
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /users:
+    get:
+      operationId: get_users
+      tags:
+      - Users
+      summary: Stateful CRUD
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUsersResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_users
+      tags:
+      - Users
+      summary: POST /users
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostUsersRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostUsersResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST http://localhost:8080/users -H 'Content-Type: application/json' -d '{\"name\": \"Alice\", \"email\": \"alice@example.com\"\
+          }' {\n \"id\": \"1c9e1e21-7a83-4d6e-9f42-2b2f6a3f8b0d\"\n} $ curl http://localhost:8080/users [\n { \"name\": \"Alice\", \"email\":\
+          \ \"alice@example.com\" }\n] Update with PUT , delete with DELETE (your generated id will differ), and the list and detail endpoints\
+          \ follow along, including a "
+  /users/{id}:
+    delete:
+      operationId: delete_users_id
+      tags:
+      - Users
+      summary: Stateful CRUD
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteUsersIdResponse'
+      x-evidence:
+        kind: documentation
+    get:
+      operationId: get_users_id
+      tags:
+      - Users
+      summary: Stateful CRUD
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUsersIdResponse'
+      x-evidence:
+        kind: documentation
+    put:
+      operationId: put_users_id
+      tags:
+      - Users
+      summary: Stateful CRUD
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutUsersIdRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutUsersIdResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetExportsIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The export identifier.
+        status:
+          type: string
+          description: Current status of the export (e.g., "queued", "processing", "done").
+        url:
+          type: string
+          description: Download URL, present when status is "done".
+    DeleteExportsIdPollsResponse:
+      type: object
+      properties:
+        reset:
+          type: boolean
+          description: Indicates the poll counter was reset.
+    GetInvoicesIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The invoice identifier, echoed from the request
+        status:
+          type: string
+          description: Fixed value "past_due"
+    PostOrdersRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          description: Array of items with sku
+      required:
+      - items
+    PostOrdersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        items:
+          type: array
+          description: Array of created items with sku and position
+    GetOrdersIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+    PostOrdersOrderidRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              sku:
+                type: string
+    PostOutageStateResponse:
+      type: object
+      properties:
+        outage:
+          type: string
+          description: Echoes the requested state.
+    GetPaymentsIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The payment id.
+        status:
+          type: string
+          description: Payment status (e.g., "approved").
+        error:
+          type: string
+          description: Error message when outage flag is set.
+    GetProductsResponse:
+      type: object
+      properties:
+        '[]':
+          type: array
+          description: Array of product objects
+    GetProductsIdResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Product identifier
+        name:
+          type: string
+          description: Product name
+        price:
+          type: number
+          description: Product price
+        error:
+          type: string
+          description: Error message when product not found
+    GetPurchasesResponse:
+      type: object
+      properties:
+        product:
+          type: string
+        qty:
+          type: integer
+    PostPurchasesRequest:
+      type: object
+      properties:
+        product:
+          type: string
+        qty:
+          type: integer
+    GetUsersResponse:
+      type: object
+      properties:
+        '[]':
+          type: array
+          description: List of user objects.
+    PostUsersRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+    PostUsersResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    DeleteUsersIdResponse:
+      type: object
+      properties:
+        deleted:
+          type: boolean
+          description: Indicates successful deletion.
+    GetUsersIdResponse:
+      type: object
+      properties:
+        user:
+          type: object
+          description: User object if found.
+        error:
+          type: string
+          description: Error message when user not found (404).
+    PutUsersIdRequest:
+      type: object
+      properties:
+        body:
+          type: object
+          description: Updated user data.
+      required:
+      - body
+    PutUsersIdResponse:
+      type: object
+      properties:
+        user:
+          type: object
+          description: Updated user object.
+        error:
+          type: string
+          description: Error message when user not found (404).
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      x-source: https://mocko.dev/docs/sdk/auth
+tags:
+- name: Api
+- name: Cats
+- name: Exports
+- name: Files
+- name: Hello
+- name: Invoices
+- name: Message
+- name: Orders
+- name: Outage
+- name: Passthrough
+- name: Payments
+- name: Posts
+- name: Products
+- name: Purchases
+- name: Reports
+- name: Users
+security:
+- Bearer: []

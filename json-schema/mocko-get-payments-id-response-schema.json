@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mocko/main/json-schema/mocko-get-payments-id-response-schema.json",
+  "title": "GetPaymentsIdResponse",
+  "x-generated": "2026-10-21",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/mocko-creating-mocks-openapi-generated.yml#/components/schemas/GetPaymentsIdResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The payment id."
+    },
+    "status": {
+      "type": "string",
+      "description": "Payment status (e.g., \"approved\")."
+    },
+    "error": {
+      "type": "string",
+      "description": "Error message when outage flag is set."
+    }
+  }
+}

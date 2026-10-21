@@ -1,37 +1,157 @@
 aid: mocko
+
 name: Mocko
-description: 'Mocko provides a platform for creating, managing, and deploying mock APIs for testing and development purposes. The service enables developers to quickly spin up realistic API simulations without writing extensive backend code, supporting a variety of protocols and response configurations. Mocko’s dashboard offers analytics, versioning, and collaboration tools, helping teams streamline integration testing and accelerate product cycles. With robust security features and customizable rate limits, it ensures safe and reliable mock environments for both internal and external stakeholders.'
+
+image: https://cdn.codetunnel.net/mocko/og-v1.png
+
+description: Mocko provides a platform for creating, managing, and deploying mock APIs for testing and development purposes. The service enables
+  developers to quickly spin up realistic API simulations without writing extensive backend code, supporting a variety of protocols and response
+  configurations. Mocko’s dashboard offers analytics, versioning, and collaboration tools, helping teams streamline integration testing and accelerate
+  product cycles. With robust security features and customizable rate limits, it ensures safe and reliable mock environments for both internal
+  and external stakeholders.
+
 url: https://raw.githubusercontent.com/api-evangelist/mocko/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:g2-catalog
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-21 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-20'
+
 modified: '2026-10-20'
+
 tags:
 - Company
 - API Mocking
 - Development Tools
 - Testing
 - Collaboration
-apis: []
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Spectral
+  url: rules/mocko-rules.yml
+- type: JSONLD
+  url: json-ld/mocko-context.jsonld
+- type: Vocabulary
+  url: vocabulary/mocko-vocabulary.yml
+- type: DataModel
+  url: data-model/mocko-data-model.yml
+- type: CLI
+  url: cli/mocko-cli.yml
+- type: Authentication
+  url: authentication/mocko-authentication.yml
+- type: Conformance
+  url: conformance/mocko-conformance.yml
+- type: LLMsTxt
+  url: llms/mocko-llms.txt
+- type: Hosts
+  url: hosts/mocko-hosts.yml
+- type: Vendors
+  url: vendors/mocko-vendors.yml
+- type: APIReference
+  url: https://mocko.dev/docs/reference/cli
+- type: GettingStarted
+  url: https://mocko.dev/docs/getting-started
+- type: Documentation
+  url: https://docs.mocko.dev/
 - type: DomainSecurity
   url: security/mocko-domain-security.yml
 - type: Website
   url: https://mocko.dev/
+
+apis:
+- name: Mocko API
+  description: Mocko provides a dynamic HTTP mocking tool with a developer portal at https://mocko.dev/docs/.
+  humanURL: https://mocko.dev/docs/
+  baseURL: null
+  aid: mocko:mocko-api
+- aid: mocko:core-api
+  name: Mocko core API
+  description: 'Mocko core API as documented publicly: 2 operations. Contract generated from the documentation by API Evangelist (2026-10-21);
+    not the provider''s own document.'
+  humanURL: https://mocko.dev/docs/cloud
+  baseURL: https://demo-api.mockoapp.net
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/mocko-core-openapi-generated.yml
+    x-provenance: generated
+- aid: mocko:creating-mocks-api
+  name: Mocko creating mocks API
+  description: 'Mocko creating mocks API as documented publicly: 8 operations. Contract generated from the documentation by API Evangelist (2026-10-21);
+    not the provider''s own document.'
+  humanURL: https://mocko.dev/docs/creating-mocks
+  baseURL: https://demo-api.mockoapp.net
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/mocko-creating-mocks-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+- aid: mocko:recipes-api
+  name: Mocko Recipes Overview API
+  description: 'Mocko Recipes Overview API as documented publicly: 16 operations. Contract generated from the documentation by API Evangelist
+    (2026-10-21); not the provider''s own document.'
+  humanURL: https://mocko.dev/docs/recipes
+  baseURL: https://demo-api.mockoapp.net
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/mocko-recipes-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:v1-api
+  name: Mocko Legacy v1 docs API
+  description: 'Mocko Legacy v1 docs API as documented publicly: 4 operations. Contract generated from the documentation by API Evangelist (2026-10-21);
+    not the provider''s own document.'
+  humanURL: https://mocko.dev/docs/v1
+  baseURL: https://demo-api.mockoapp.net
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/mocko-v1-openapi-generated.yml
+    x-provenance: generated
 
 x-coverage:
   state: unreadable
   reason: no-machine-readable-spec
   detail: Provider documentation at https://mocko.dev/docs/ contains no machine‑readable OpenAPI, GraphQL, AsyncAPI or other contract files.
   evidence:
-    - url: https://api.mocko.dev/openapi.json
-      status: 000
-  checked: 2026-10-20
+  - url: https://api.mocko.dev/openapi.json
+    status: 0
+  checked: '2026-10-20'
+x-enrichment:
+  date: '2026-10-21'
+  status: enriched
+  artifacts_added: 32
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

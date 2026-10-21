@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mocko/main/json-schema/mocko-get-exports-id-response-schema.json",
+  "title": "GetExportsIdResponse",
+  "x-generated": "2026-10-21",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/mocko-recipes-openapi-generated.yml#/components/schemas/GetExportsIdResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The export identifier."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the export (e.g., \"queued\", \"processing\", \"done\")."
+    },
+    "url": {
+      "type": "string",
+      "description": "Download URL, present when status is \"done\"."
+    }
+  }
+}

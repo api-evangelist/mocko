@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mocko/main/json-schema/mocko-get-users-id-response-schema.json",
+  "title": "GetUsersIdResponse",
+  "x-generated": "2026-10-21",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/mocko-recipes-openapi-generated.yml#/components/schemas/GetUsersIdResponse",
+  "type": "object",
+  "properties": {
+    "user": {
+      "type": "object",
+      "description": "User object if found."
+    },
+    "error": {
+      "type": "string",
+      "description": "Error message when user not found (404)."
+    }
+  }
+}

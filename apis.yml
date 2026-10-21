@@ -1,7 +1,6 @@
 aid: mocko
 name: Mocko
-description: 'Mocko is a company surfaced via the API Evangelist harvest backlog (source: g2-catalog)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Mocko provides a platform for creating, managing, and deploying mock APIs for testing and development purposes. The service enables developers to quickly spin up realistic API simulations without writing extensive backend code, supporting a variety of protocols and response configurations. Mocko’s dashboard offers analytics, versioning, and collaboration tools, helping teams streamline integration testing and accelerate product cycles. With robust security features and customizable rate limits, it ensures safe and reliable mock environments for both internal and external stakeholders.'
 url: https://raw.githubusercontent.com/api-evangelist/mocko/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:g2-catalog
@@ -12,6 +11,10 @@ created: '2026-10-20'
 modified: '2026-10-20'
 tags:
 - Company
+- API Mocking
+- Development Tools
+- Testing
+- Collaboration
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +22,16 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/mocko-domain-security.yml
 - type: Website
   url: https://mocko.dev/
+
+x-coverage:
+  state: unreadable
+  reason: no-machine-readable-spec
+  detail: Provider documentation at https://mocko.dev/docs/ contains no machine‑readable OpenAPI, GraphQL, AsyncAPI or other contract files.
+  evidence:
+    - url: https://api.mocko.dev/openapi.json
+      status: 000
+  checked: 2026-10-20

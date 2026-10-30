@@ -1,0 +1,212 @@
+openapi: 3.2.0
+info:
+  title: Mocko Users API
+  version: '2026-10-21'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-21: 30 operation(s) read from 20 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Mocko has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 14
+    documentation: 16
+    pages-with-code: 15
+    pages-read: 20
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-21'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://mocko.dev/docs/reference/helpers
+  - https://mocko.dev/docs/sdk/getting-started
+  - https://mocko.dev/docs/recipes/stateful-crud
+  - https://mocko.dev/docs/recipes/list-and-detail
+  - https://mocko.dev/docs/recipes/slow-unstable-apis
+  - https://mocko.dev/docs/getting-started
+  - https://mocko.dev/docs/sdk/flag-definitions
+  - https://mocko.dev/docs/cloud/getting-started
+  - https://mocko.dev/docs/v1/getting-started/standalone
+  - https://mocko.dev/docs/v1/templating
+  - https://mocko.dev/docs/v1/templating/persistence
+  - https://mocko.dev/docs/recipes/append-to-list
+  - https://mocko.dev/docs/recipes/mock-one-edge-case
+  - https://mocko.dev/docs/recipes/polling-status
+  - https://mocko.dev/docs/recipes/microservices-by-host
+  - https://mocko.dev/docs/creating-mocks/file-mocks
+  - https://mocko.dev/docs/creating-mocks/templating
+  - https://mocko.dev/docs/creating-mocks/matching
+  - https://mocko.dev/docs/creating-mocks/flags
+  - https://mocko.dev/docs/creating-mocks/proxying-and-hosts
+servers:
+- url: https://demo-api.mockoapp.net
+security:
+- Bearer: []
+tags:
+- name: Users
+paths:
+  /users:
+    get:
+      operationId: get_users
+      tags:
+      - Users
+      summary: Stateful CRUD
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUsersResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_users
+      tags:
+      - Users
+      summary: POST /users
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostUsersRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostUsersResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST http://localhost:8080/users -H 'Content-Type: application/json' -d '{\"name\": \"Alice\", \"email\": \"alice@example.com\"}' {\n \"id\": \"1c9e1e21-7a83-4d6e-9f42-2b2f6a3f8b0d\"\n} $ curl http://localhost:8080/users [\n { \"name\": \"Alice\", \"email\": \"alice@example.com\" }\n] Update with PUT , delete with DELETE (your generated id will differ), and the list and detail endpoints follow along, including a "
+  /users/{id}:
+    delete:
+      operationId: delete_users_id
+      tags:
+      - Users
+      summary: Stateful CRUD
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteUsersIdResponse'
+      x-evidence:
+        kind: documentation
+    get:
+      operationId: get_users_id
+      tags:
+      - Users
+      summary: Stateful CRUD
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUsersIdResponse'
+      x-evidence:
+        kind: documentation
+    put:
+      operationId: put_users_id
+      tags:
+      - Users
+      summary: Stateful CRUD
+      x-source: https://mocko.dev/docs/recipes/stateful-crud
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutUsersIdRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutUsersIdResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PutUsersIdRequest:
+      type: object
+      properties:
+        body:
+          type: object
+          description: Updated user data.
+      required:
+      - body
+    GetUsersIdResponse:
+      type: object
+      properties:
+        user:
+          type: object
+          description: User object if found.
+        error:
+          type: string
+          description: Error message when user not found (404).
+    PostUsersRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+    PostUsersResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    DeleteUsersIdResponse:
+      type: object
+      properties:
+        deleted:
+          type: boolean
+          description: Indicates successful deletion.
+    GetUsersResponse:
+      type: object
+      properties:
+        '[]':
+          type: array
+          description: List of user objects.
+    PutUsersIdResponse:
+      type: object
+      properties:
+        user:
+          type: object
+          description: Updated user object.
+        error:
+          type: string
+          description: Error message when user not found (404).
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      x-source: https://mocko.dev/docs/sdk/auth

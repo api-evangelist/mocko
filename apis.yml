@@ -72,30 +72,21 @@ common:
 
 apis:
 - name: Mocko API
-  description: Mocko provides a dynamic HTTP mocking tool with a developer portal at https://mocko.dev/docs/.
+  description: >-
+    Mocko provides a dynamic HTTP mocking tool with a developer portal at https://mocko.dev/docs/.
   humanURL: https://mocko.dev/docs/
   baseURL: null
   aid: mocko:mocko-api
-- aid: mocko:core-api
-  name: Mocko core API
-  description: 'Mocko core API as documented publicly: 2 operations. Contract generated from the documentation by API Evangelist (2026-10-21);
-    not the provider''s own document.'
-  humanURL: https://mocko.dev/docs/cloud
+- aid: mocko:mocko-cats-api
+  name: Mocko Cats API
+  description: The Cats API from Mocko — 1 operation(s) for cats.
+  humanURL: https://mocko.dev/docs/
   baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Cats
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/mocko-core-openapi-generated.yml
-    x-provenance: generated
-- aid: mocko:creating-mocks-api
-  name: Mocko creating mocks API
-  description: 'Mocko creating mocks API as documented publicly: 8 operations. Contract generated from the documentation by API Evangelist (2026-10-21);
-    not the provider''s own document.'
-  humanURL: https://mocko.dev/docs/creating-mocks
-  baseURL: https://demo-api.mockoapp.net
-  properties:
-  - type: OpenAPI
-    url: openapi/_ae-authored/mocko-creating-mocks-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/mocko-cats-api-openapi.yml
   - type: JSONSchema
     url: json-schema/mocko-get-payments-id-response-schema.json
   - type: JSONSchema
@@ -108,16 +99,6 @@ apis:
     url: json-schema/mocko-post-outage-state-response-schema.json
   - type: JSONSchema
     url: json-schema/mocko-get-orders-id-response-schema.json
-- aid: mocko:recipes-api
-  name: Mocko Recipes Overview API
-  description: 'Mocko Recipes Overview API as documented publicly: 16 operations. Contract generated from the documentation by API Evangelist
-    (2026-10-21); not the provider''s own document.'
-  humanURL: https://mocko.dev/docs/recipes
-  baseURL: https://demo-api.mockoapp.net
-  properties:
-  - type: OpenAPI
-    url: openapi/_ae-authored/mocko-recipes-openapi-generated.yml
-    x-provenance: generated
   - type: JSONSchema
     url: json-schema/mocko-get-exports-id-response-schema.json
   - type: JSONSchema
@@ -130,17 +111,516 @@ apis:
     url: json-schema/mocko-put-users-id-response-schema.json
   - type: JSONSchema
     url: json-schema/mocko-put-users-id-request-schema.json
-- aid: mocko:v1-api
-  name: Mocko Legacy v1 docs API
-  description: 'Mocko Legacy v1 docs API as documented publicly: 4 operations. Contract generated from the documentation by API Evangelist (2026-10-21);
-    not the provider''s own document.'
-  humanURL: https://mocko.dev/docs/v1
+- aid: mocko:mocko-exports-api
+  name: Mocko Exports API
+  description: The Exports API from Mocko — 2 operation(s) for exports.
+  humanURL: https://mocko.dev/docs/
   baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Exports
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/mocko-v1-openapi-generated.yml
-    x-provenance: generated
-
+    url: openapi/mocko-exports-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-files-api
+  name: Mocko Files API
+  description: The Files API from Mocko — 1 operation(s) for files.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-files-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-hello-api
+  name: Mocko Hello API
+  description: The Hello API from Mocko — 1 operation(s) for hello.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Hello
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-hello-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-invoices-api
+  name: Mocko Invoices API
+  description: The Invoices API from Mocko — 1 operation(s) for invoices.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-invoices-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-message-api
+  name: Mocko Message API
+  description: The Message API from Mocko — 2 operation(s) for message.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Message
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-message-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-mocko-api-api
+  name: Mocko Mocko API
+  description: The Mocko API API from Mocko — 1 operation(s) for mocko api.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Mocko API
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-mocko-api-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-orders-api
+  name: Mocko Orders API
+  description: The Orders API from Mocko — 3 operation(s) for orders.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-orders-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-outage-api
+  name: Mocko Outage API
+  description: The Outage API from Mocko — 1 operation(s) for outage.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Outage
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-outage-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-passthrough-api
+  name: Mocko Passthrough API
+  description: The Passthrough API from Mocko — 1 operation(s) for passthrough.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Passthrough
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-passthrough-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-payments-api
+  name: Mocko Payments API
+  description: The Payments API from Mocko — 2 operation(s) for payments.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-payments-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-posts-api
+  name: Mocko Posts API
+  description: The Posts API from Mocko — 2 operation(s) for posts.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Posts
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-posts-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-products-api
+  name: Mocko Products API
+  description: The Products API from Mocko — 2 operation(s) for products.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-products-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-purchases-api
+  name: Mocko Purchases API
+  description: The Purchases API from Mocko — 1 operation(s) for purchases.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Purchases
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-purchases-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-reports-api
+  name: Mocko Reports API
+  description: The Reports API from Mocko — 1 operation(s) for reports.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-reports-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
+- aid: mocko:mocko-users-api
+  name: Mocko Users API
+  description: The Users API from Mocko — 2 operation(s) for users.
+  humanURL: https://mocko.dev/docs/
+  baseURL: https://demo-api.mockoapp.net
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/mocko-users-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/mocko-get-payments-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-orderid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-orders-request-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-post-outage-state-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-exports-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-products-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-invoices-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-get-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/mocko-put-users-id-request-schema.json
 x-coverage:
   state: unreadable
   reason: no-machine-readable-spec

@@ -1,0 +1,41 @@
+{
+  "provider": "mocko",
+  "sources": [
+    "_ae-authored/mocko-openapi-generated.yml"
+  ],
+  "outputs": [
+    "mocko-cats-api-openapi.yml",
+    "mocko-exports-api-openapi.yml",
+    "mocko-files-api-openapi.yml",
+    "mocko-hello-api-openapi.yml",
+    "mocko-invoices-api-openapi.yml",
+    "mocko-message-api-openapi.yml",
+    "mocko-mocko-api-api-openapi.yml",
+    "mocko-orders-api-openapi.yml",
+    "mocko-outage-api-openapi.yml",
+    "mocko-passthrough-api-openapi.yml",
+    "mocko-payments-api-openapi.yml",
+    "mocko-posts-api-openapi.yml",
+    "mocko-products-api-openapi.yml",
+    "mocko-purchases-api-openapi.yml",
+    "mocko-reports-api-openapi.yml",
+    "mocko-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "4 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "mocko-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "mocko-openapi-generated.yml: tagged paths GET / -> Mocko API",
+    "mocko-openapi-generated.yml: declared missing tag: Mocko API",
+    "apis.yml register: written (+16 apis, 17 total)"
+  ],
+  "skipped": [
+    "_ae-authored/mocko-v1-openapi-generated.yml: archived document superseded by a larger archived document",
+    "_ae-authored/mocko-recipes-openapi-generated.yml: archived document superseded by a larger archived document",
+    "_ae-authored/mocko-creating-mocks-openapi-generated.yml: archived document superseded by a larger archived document",
+    "_ae-authored/mocko-core-openapi-generated.yml: archived document superseded by a larger archived document"
+  ]
+}
